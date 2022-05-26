@@ -12,6 +12,8 @@ namespace Heist
 
             List<TeamMember> teamList = new List<TeamMember>();
 
+            Bank thisBank = new Bank(100);
+
             Console.Write("What is your team member's name? ");
             string name = Console.ReadLine();
             Console.Write("What is the skill level of your member? ");
@@ -30,7 +32,8 @@ namespace Heist
 
             Team newTeam = new Team(teamList);
 
-            newTeam.Description();
+            int skillSum = 0;
+            skillSum += skill;
 
             while(true)
             {
@@ -44,6 +47,7 @@ namespace Heist
                 {
                     Console.Write("What is the skill level of your member? ");
                     skill = int.Parse(Console.ReadLine());
+                    skillSum += skill;
                     Console.Write("What is your team member's courage factor (0.0 - 2.0) ");
                     courage = decimal.Parse(Console.ReadLine());
                 while (courage < 0 || courage > 2)
@@ -53,13 +57,21 @@ namespace Heist
                 }
                 TeamMember thisMember = new TeamMember(name, skill, courage);
                 teamList.Add(thisMember);
-                newTeam.Description();
                 }
             }
 
+            if (skillSum >= thisBank.Difficulty) 
+            {
+                Console.WriteLine("");
+                Console.WriteLine("You robbed the damn bank, nice!");
+            }
+            else
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Weaksauce, try again next time.");
+            }
 
             TeamMember member = new TeamMember(name, skill, courage);
-            newTeam.Description();
         }
     }
 }
