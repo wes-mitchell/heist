@@ -17,7 +17,7 @@ namespace Heist
 
     public override string ToString()
     {
-      return $"Welcome {Name}, your skill level is {SkillLevel} and your courage level is {CourageLevel}!";
+      return $"Team mate {Name}, your skill level is {SkillLevel} and your courage level is {CourageLevel}!";
     }
 
     // public void ShowDetails()
