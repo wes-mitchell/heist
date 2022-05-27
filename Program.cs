@@ -14,6 +14,11 @@ namespace Heist
 
             Bank thisBank = new Bank(100);
 
+            Random luck = new Random();
+            int bankLuck = luck.Next(-10, 10);
+
+            thisBank.Difficulty += bankLuck;
+
             Console.Write("What is your team member's name? ");
             string name = Console.ReadLine();
             Console.Write("What is the skill level of your member? ");
@@ -62,11 +67,18 @@ namespace Heist
 
             if (skillSum >= thisBank.Difficulty) 
             {
+                
+                Console.WriteLine("");
+                Console.WriteLine($"Your teams total skill level was {skillSum}");
+                Console.WriteLine($"The bank's difficulty was {thisBank.Difficulty}");
                 Console.WriteLine("");
                 Console.WriteLine("You robbed the damn bank, nice!");
             }
             else
             {
+                Console.WriteLine("");
+                Console.WriteLine($"Your teams total skill level was {skillSum}");
+                Console.WriteLine($"The bank's difficulty was {thisBank.Difficulty}");
                 Console.WriteLine("");
                 Console.WriteLine("Weaksauce, try again next time.");
             }
