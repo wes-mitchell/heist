@@ -65,6 +65,15 @@ namespace Heist
                 }
             }
 
+            Console.Write("How many trial runs would you like to do?");
+            int trialRuns = int.Parse(Console.ReadLine());
+
+            while(trialRuns != 0)
+            {
+                Random newLuck = new Random();
+                int thisLuck = newLuck.Next(-10, 10);
+                thisBank.Difficulty += thisLuck;
+
             if (skillSum >= thisBank.Difficulty) 
             {
                 
@@ -82,7 +91,8 @@ namespace Heist
                 Console.WriteLine("");
                 Console.WriteLine("Weaksauce, try again next time.");
             }
-
+                trialRuns--;
+            }
             TeamMember member = new TeamMember(name, skill, courage);
         }
     }
